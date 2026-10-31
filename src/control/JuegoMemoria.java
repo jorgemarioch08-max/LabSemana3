@@ -207,12 +207,12 @@ public class JuegoMemoria extends ControlJuego{
     public String getMensajeFinal(){
         Jugador j1 = jugadores[0];
         Jugador j2 = jugadores[1];
-        if(j1.getPuntaje()>j2.getPuntaje()){
-            return "Gana "+j1.getNombre()+" con "+j1.getPuntaje()+" puntos ("+j1.getAciertos()+" parejas).";
+        if(j1.getPuntos()>j2.getPuntos()){
+            return "Gana "+j1.getNombre()+" con "+j1.getPuntos()+" puntos ("+j1.getAciertos()+" parejas).";
         }
-        if(j2.getPuntaje()>j1.getPuntaje()){
-            return "Gana "+j2.getNombre()+" con "+j2.getPuntaje()+" puntos ("+j2.getAciertos()+" parejas).";
+        if(j2.getPuntos()>j1.getPuntos()){
+            return "Gana "+j2.getNombre()+" con "+j2.getPuntos()+" puntos ("+j2.getAciertos()+" parejas).";
         }
-        return "Empate: los dos jugadores terminaron con "+j1.getPuntaje()+" puntos.";
+        return "Empate: los dos jugadores terminaron con "+j1.getPuntos()+" puntos.";
     }
 }
