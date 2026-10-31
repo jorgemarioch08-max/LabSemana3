@@ -6,7 +6,7 @@ public class Jugador {
     public int aciertos;
     public int puntos;
 
-    public Jugador(String nombre, int aciertos, int puntos) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
         this.aciertos = 0;
         this.puntos = 0;
@@ -44,5 +44,10 @@ public class Jugador {
     public void reiniciar() {
         aciertos = 0;
         puntos = 0;
+    }
+
+    public void sumarPareja(int puntos) {
+        aciertos++;
+        this.puntos+=puntos;
     }
 }
