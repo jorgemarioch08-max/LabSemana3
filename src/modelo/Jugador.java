@@ -40,4 +40,9 @@ public class Jugador {
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
+
+    public void reiniciar() {
+        aciertos = 0;
+        puntos = 0;
+    }
 }
