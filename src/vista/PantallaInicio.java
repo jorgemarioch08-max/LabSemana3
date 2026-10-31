@@ -3,6 +3,9 @@ package vista;
 import control.*;
 import javax.swing.*;
 import java.awt.*;
+import control.ControlJuego;
+import control.JuegoMemoria;
+import excepciones.NombreInvalidoException;
 
 public class PantallaInicio extends JFrame {
     private JLabel lblTitulo, lblJugador1, lblJugador2;
@@ -67,6 +70,21 @@ public class PantallaInicio extends JFrame {
     }
 
     public void iniciarJuego() {
+        try {
+            ControlJuego control = new JuegoMemoria(
+                    txtJugador1.getText(),
+                    txtJugador2.getText()
+            );
+            new PantallaTablero(control).setVisible(true);
+            dispose();
+        } catch (NombreInvalidoException e) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    e.getMessage(),
+                    "Error de validación",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
 
     }
 

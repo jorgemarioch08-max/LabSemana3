@@ -63,7 +63,7 @@ public class PantallaVictoria extends JFrame{
     }
 
     private JLabel crearResultado(Jugador j){
-        JLabel lbl = new JLabel(j.getNombre()+":  "+j.getAciertos()+" parejas,  "+j.getPuntaje()+" puntos",
+        JLabel lbl = new JLabel(j.getNombre()+":  "+j.getAciertos()+" parejas,  "+j.getPuntos()+" puntos",
                 SwingConstants.CENTER);
         lbl.setFont(new Font("Arial", Font.PLAIN, 14));
         return lbl;

@@ -12,8 +12,7 @@ public class PantallaTablero extends JFrame {
 
     private BotonCarta[] botones = new BotonCarta[36];
 
-    private JLabel lblJugador1;
-    private JLabel lblJugador2;
+    private JLabel lblJugador1, lblJugador2;
     private JLabel lblTurno;
 
     private JPanel panelTablero;
@@ -39,9 +38,10 @@ public class PantallaTablero extends JFrame {
 
         setLayout(new BorderLayout(10, 10));
 
-        // Panel superior: marcadores.
+        // Panel superior: marcadores y turno.
 
         JPanel panelSuperior = new JPanel(new GridLayout(2, 2, 10, 5));
+
         panelSuperior.setBorder(
                 BorderFactory.createEmptyBorder(15, 20, 5, 20)
         );
@@ -69,7 +69,7 @@ public class PantallaTablero extends JFrame {
 
         add(panelSuperior, BorderLayout.NORTH);
 
-        // Panel central: tablero 6 x 6.
+        // Panel central: tablero de 6 x 6.
 
         panelTablero = new JPanel(new GridLayout(6, 6, 6, 6));
 
@@ -83,7 +83,9 @@ public class PantallaTablero extends JFrame {
 
             final int posicion = i;
 
-            botones[i].addActionListener(e -> seleccionarCarta(posicion));
+            botones[i].addActionListener(
+                    e -> seleccionarCarta(posicion)
+            );
 
             panelTablero.add(botones[i]);
         }
@@ -114,8 +116,6 @@ public class PantallaTablero extends JFrame {
 
             if (resultado == ControlJuego.NO_PAREJA) {
 
-                // Bloquear el tablero durante un segundo.
-
                 bloquearTablero();
 
                 temporizador = new Timer(1000, e -> {
@@ -144,7 +144,6 @@ public class PantallaTablero extends JFrame {
                     "Selección inválida",
                     JOptionPane.WARNING_MESSAGE
             );
-
         }
     }
 
@@ -173,13 +172,9 @@ public class PantallaTablero extends JFrame {
         lblTurno.setText("Turno de: " + nombreTurno);
 
         if (control.getTurno() == 0) {
-
             lblTurno.setForeground(new Color(30, 100, 200));
-
         } else {
-
             lblTurno.setForeground(new Color(30, 140, 70));
-
         }
 
         for (int i = 0; i < botones.length; i++) {
